@@ -1,0 +1,29 @@
+dependencies:
+  # - <organization/repo>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@0.2.1
+  - OpenZeppelin/openzeppelin-contracts@4.2.0
+
+compiler:
+  solc:
+    remappings:
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@0.2.1"
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.2.0"
+
+dotenv: .env
+networks:
+  default: development
+  development:
+    verify: False
+  rinkeby:
+    coin_flip: "0x7f3D19F8C8bF78637d9eB0a24132061b99253534"
+    hack_coin_flip: "0x69695bBaf7988252584730A0CD875cc91f045F54"
+    telephone: "0x03627c897E5159c54b1f4912B420875b8ACA71f5"
+    verify: True
+  mainnet-fork:
+    eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    verify: False
+wallets:
+  from_key: ${PRIVATE_KEY}
+  from_address: ${WALLET_ADDRESS}
+tokens:
+  etherscan_token: ${ETHERSCAN_TOKEN}
