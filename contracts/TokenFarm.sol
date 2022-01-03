@@ -1,11 +1,4 @@
 // SPDX-License-Identifier: MIT
-// Stake
-
-//Unstake
-
-// Issue
-
-// AddAllowedToken
 
 pragma solidity ^0.8.0;
 
@@ -19,11 +12,13 @@ contract TokenFarm is Ownable {
         public tokenToStakerToAmount;
     address[] public stakers;
     mapping(address => uint256) public uniqueTokensStaked;
-    mapping(address => address) tokenPriceFeedMapping;
+    mapping(address => address) public tokenPriceFeedMapping;
     IERC20 public naznoztoken;
+    event contract_address(address contractAddress);
 
     constructor(address _naznoztokenaddress) {
         naznoztoken = IERC20(_naznoztokenaddress);
+        emit contract_address(address(this));
     }
 
     function setPriceFeedContract(address _token, address _priceFeed)
